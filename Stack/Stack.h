@@ -64,9 +64,6 @@ void* STK_top(struct Stack* stack);
 
 /* Return the current number of items
  * on the Stack */
-inline int STK_size(struct Stack* stack) 
-{
-    return stack->m_items; 
-}
+int STK_size(struct Stack* stack);
 
 #endif

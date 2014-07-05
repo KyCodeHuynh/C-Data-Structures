@@ -33,7 +33,35 @@ void STK_deleteStack(struct Stack* stack)
     free(stack); 
 }
 
+void STK_push(struct Stack* stack, void* item)
+{
+    LL_insertNode(stack->m_list, item); 
 
+    (stack->m_items)++; 
+    stack->m_top = item; 
+}
+
+void STK_pop(struct Stack* stack)
+{
+    struct Node* doomed = stack->m_top;
+    LL_deleteNode(stack->m_list, doomed); 
+
+    stack->m_top = stack->m_top->next; 
+    (stack->m_items)--; 
+}
+     
+void* STK_top(struct Stack* stack)
+{
+    void* result = NULL; 
+    result = stack->m_top; 
+    
+    return result; 
+}
+
+int STK_size(struct Stack* stack)
+{
+    return stack->m_items; 
+}
 
 
 

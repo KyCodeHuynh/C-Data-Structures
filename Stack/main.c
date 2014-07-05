@@ -19,6 +19,7 @@ int main(void)
 
     STK_push(testStack, &testInt); 
     STK_size(testStack);
+    int* testPtr = (int*) STK_top(testStack); 
 
     STK_pop(testStack); 
     STK_size(testStack); 
