@@ -44,18 +44,15 @@ void STK_push(struct Stack* stack, void* item)
 void STK_pop(struct Stack* stack)
 {
     struct Node* doomed = stack->m_top;
-    LL_deleteNode(stack->m_list, doomed); 
+    stack->m_top = stack->m_top->next;
 
-    stack->m_top = stack->m_top->next; 
+    LL_deleteNode(stack->m_list, doomed);      
     (stack->m_items)--; 
 }
      
 void* STK_top(struct Stack* stack)
 {
-    void* result = NULL; 
-    result = stack->m_top; 
-    
-    return result; 
+    return stack->m_top; 
 }
 
 int STK_size(struct Stack* stack)

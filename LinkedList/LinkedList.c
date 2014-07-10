@@ -105,7 +105,10 @@ int LL_deleteNode(struct LinkedList* list, void* item)
             /* Target Node is first Node */
             if (cur == list->head) { 
                 list->head = cur->next; 
-                list->head->prev = NULL; 
+                if (list->head != NULL) {
+                    list->head->prev = NULL; 
+                }
+
                 free(cur); 
                 (list->numNodes)--; 
                 return 0; 

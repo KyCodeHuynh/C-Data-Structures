@@ -7,6 +7,7 @@
  */ 
 
 
+#include <stdio.h>
 #include <stdlib.h> 
 #include "Stack.h" 
 
@@ -20,6 +21,7 @@ int main(void)
     STK_push(testStack, &testInt); 
     STK_size(testStack);
     int* testPtr = (int*) STK_top(testStack); 
+    printf("Number of items: %d", *testPtr); 
 
     STK_pop(testStack); 
     STK_size(testStack); 
