@@ -3,7 +3,7 @@
  *   5 July 2014 
  *
  *  Full set of unit tests 
- *  for the Stack ADT
+ *  for the Stack module
  */ 
 
 
