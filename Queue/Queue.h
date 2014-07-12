@@ -6,8 +6,10 @@
 /* An archetypal queue data structure, 
  * implemented in C, and designed to
  * be somewhat generic via typedef
- * Its implementation uses dynamic arrays
- * which allows its size to scale dynamically.
+ * Its implementation uses a modified
+ * version of the LinkedList module
+ * that's more amenable to a queue,
+ * with access to head and tail pointers.
  * The prefix used for all methods is "QUE". 
  */
 
