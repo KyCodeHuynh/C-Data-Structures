@@ -21,9 +21,9 @@
  *      ^        ^        ^
  *      |        |        | 
  * ||- Node <-> Node <-> Node -||
- *      ^
- *      |
- *    head
+ *      ^                 ^
+ *      |                 |
+ *    head              tail
  */
 
 
@@ -92,9 +92,10 @@ struct Node* LL_insertNode(struct LinkedList* list, void* item);
  * The item is not affected.
  * Return a pointer to the 
  * preceding Node if successful, 
- * NULL in the cases of an item
- * not found in the list, or
- * if the list was empty
+ * or the following Node in the case
+ * of deleting the first Node,
+ * NULL if an item is not found
+ * in a list, or if the list was empty
  */
 struct Node* LL_deleteNodeByItem(struct LinkedList* list, void* item);
 

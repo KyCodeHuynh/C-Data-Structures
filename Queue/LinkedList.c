@@ -101,10 +101,8 @@ struct Node* LL_insertNode(struct LinkedList* list, void* item)
     return newNode; 
 }
 
-int LL_deleteNodeByItem(struct LinkedList* list, void* item)
+struct Node* LL_deleteNodeByItem(struct LinkedList* list, void* item)
 { 
-    if (list == NULL || item == NULL)
-        return 1;
 
     /* Iterate through list and look for doomed Node */
     struct Node* cur; 
@@ -119,16 +117,17 @@ int LL_deleteNodeByItem(struct LinkedList* list, void* item)
 
                 free(cur); 
                 (list->numNodes)--; 
-                return 0; 
+                return list->head; 
             }
             
             /* Target Node is last Node */ 
             if (cur->next == NULL) { 
                 cur->prev->next = NULL; 
                 list->tail = cur->prev;
+
                 free(cur);
                 (list->numNodes)--; 
-                return 0;
+                return list->tail;
             }
             
             /* If in middle, relink Nodes
@@ -138,15 +137,16 @@ int LL_deleteNodeByItem(struct LinkedList* list, void* item)
             
             /* Then, as the Daleks, 
              * would say, delete the Node */ 
+            struct Node* result = cur->next;
             free(cur); 
             (list->numNodes)--; 
 
-            return 0; 
+            return result; 
         }
     }
 
     /* Item not found or list empty */ 
-    return 1; 
+    return NULL; 
 }
 
 struct Node* LL_deleteNodeByIndex(struct LinkedList* list, int index)
