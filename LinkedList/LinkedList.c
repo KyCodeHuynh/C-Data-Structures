@@ -140,6 +140,23 @@ int LL_deleteNode(struct LinkedList* list, void* item)
     return 1; 
 }
 
+struct Node* LL_getNode(struct LinkedList* list, int index)
+{
+    /* Safety checks */ 
+    if (index < 0 || index > list->numNodes || list->head == NULL) { 
+        return NULL; 
+    }
+
+    /* Traverse list */ 
+    struct Node* cur = list->head; 
+    while (cur->next != NULL && --index != 0) {
+        cur = cur->next; 
+    }
+
+    return cur; 
+}
+
+
 int LL_numNodes(struct LinkedList* list) 
 { 
     return list->numNodes; 
