@@ -9,6 +9,7 @@
 
 #include <stdlib.h>
 #include <assert.h>
+
 #include "Stack.h" 
 
 int main(void) 

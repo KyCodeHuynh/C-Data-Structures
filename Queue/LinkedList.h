@@ -21,9 +21,9 @@
  *      ^        ^        ^
  *      |        |        | 
  * ||- Node <-> Node <-> Node -||
- *      ^                 ^
- *      |                 |
- *    head              tail
+ *      ^
+ *      |
+ *    head
  */
 
 
@@ -37,7 +37,7 @@
  * Node in the list. 
  */
 struct Node { 
-    void*  item; 
+    void* item; 
     struct Node* next; 
     struct Node* prev;
 };
@@ -48,8 +48,7 @@ struct Node {
  */
 struct LinkedList { 
     struct Node* head; 
-    struct Node* tail;
-    int    numNodes;
+    int   numNodes;
 };
 
 
@@ -87,29 +86,13 @@ struct Node* LL_insertNode(struct LinkedList* list, void* item);
 
 /* Take a pointer to an item
  * and a pointer to the target
- * LinkedList. Delete the Node
+ * Linked List. Delete the Node
  * pointing to the target item. 
  * The item is not affected.
- * Return a pointer to the 
- * preceding Node if successful, 
- * or the following Node in the case
- * of deleting the first Node,
- * NULL if an item is not found
- * in a list, or if the list was empty
+ * Return 0 if successful, 
+ * 1 if item not found    
  */
-struct Node* LL_deleteNodeByItem(struct LinkedList* list, void* item);
-
-/* Take a pointer to a LinkedList, 
- * and the index of a target Node,
- * 0 to numNodes - 1
- * Delete the Node marked by that index.
- * The Node's item is unaffected. 
- * Return a pointer to the preceding
- * Node if successful, NULL in the cases
- * of an invalid index and empty list.
- */
-struct Node* LL_deleteNodeByIndex(struct LinkedList* list, int index);
-
+int LL_deleteNode(struct LinkedList* list, void* item);
 
 /* Take an integral Node index (0 - (numNodes - 1))
  * and return a pointer to the Node (which in turn

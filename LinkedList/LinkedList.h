@@ -101,7 +101,7 @@ int LL_deleteNode(struct LinkedList* list, void* item);
  * the list in search of an item or Node.
  * Return NULL if the index is out-of-range
  */
-struct Node* LL_getNode(int index); 
+struct Node* LL_getNode(struct LinkedList* list, int index); 
 
 /* Return the number of Nodes in the list */ 
 int LL_numNodes(struct LinkedList* list);
