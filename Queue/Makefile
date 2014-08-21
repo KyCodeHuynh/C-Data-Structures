@@ -5,7 +5,7 @@
 
 ### Compiler Options ### 
 NAME    = Queue
-SOURCE  = Queue.c LinkedList.c
+SOURCE  = Queue.c QLinkedList.c
 CC      = gcc
 OPTIONS = -ansi -Wall -Wextra 
 

@@ -1,6 +1,7 @@
 /*   Queue.h
  *   Ky-Cuong L. Huynh
- *   12 July 2014 
+ *   Begun: 12 July 2014 
+ *   Current version: 21 August 2014
  */
 
 /* An archetypal queue data structure, 
@@ -26,7 +27,7 @@ struct Queue {
 
 /* Create a new, empty Queue and return
  * a pointer to it */
-struct* Queue QUE_newQueue(void);
+struct Queue* QUE_newQueue(void);
 
 /* Deallocate an existing Queue from memory. 
  * This does not deallocate the items to 
