@@ -10,7 +10,7 @@
 #include <assert.h> 
 
 #include "Queue.h"
-#include "LinkedList.h"
+#include "QLinkedList.h"
 
 int main(void) 
 {

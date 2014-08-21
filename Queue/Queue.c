@@ -14,9 +14,9 @@
 struct Queue* QUE_newQueue(void)
 {
     struct Queue* result;
-    result = (struct Stack*)malloc(sizeof(struct Queue));
+    result = (struct Queue*)malloc(sizeof(struct Queue));
     result->m_items = 0; 
-    result->m_list = LL_newList;
+    result->m_list = LL_newList();
 
     return result;
 }
@@ -27,7 +27,7 @@ void QUE_deleteQueue(struct Queue* queue)
         return;
     }
 
-    LL_deleteList(struct LinkedList* list);
+    LL_deleteList(queue->m_list);
     queue->m_items = 0; 
 
     free(queue);
@@ -45,7 +45,7 @@ void QUE_push(struct Queue* queue, void* item)
 
 void QUE_pop(struct Queue* queue)
 {
-    if (queue == NULL || m_items == 0) {
+    if (queue == NULL || queue->m_items == 0) {
         return;
     }
 
@@ -62,7 +62,7 @@ void* QUE_front(struct Queue* queue)
 
 void* QUE_back(struct Queue* queue)
 {
-    struct Node* result = LL_getNode(queue->m_list, (queue->size) - 1);
+    struct Node* result = LL_getNode(queue->m_list, (queue->m_items) - 1);
 
     return result->item;
 }
