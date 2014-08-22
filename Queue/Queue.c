@@ -74,7 +74,7 @@ int QUE_size(struct Queue* queue)
 
 int QUE_empty(struct Queue* queue)
 {
-    if (queue->m_items > 0) {
+    if (queue->m_items == 0) {
         return 1; 
     } 
     else {
