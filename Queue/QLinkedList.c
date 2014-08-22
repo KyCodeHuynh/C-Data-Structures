@@ -171,7 +171,7 @@ struct Node* LL_deleteNodeByIndex(struct LinkedList* list, int index)
         return result;
     }
 
-    /* Easy case: last node */
+    /* Special case: last node */
     if (index == (list->numNodes - 1)) {
         struct Node* result = list->tail->prev;
         free(list->tail);
@@ -186,9 +186,26 @@ struct Node* LL_deleteNodeByIndex(struct LinkedList* list, int index)
         return result;
     }
 
-    /* TODO: Write traversal code */
-    return list->head;
-        
+    struct Node* cur = list->head;
+    int count = index; 
+    while (cur != NULL && count != 0) {
+        cur = cur->next; 
+        count--;
+    }
+
+    /* Relink around doomed Node */
+    struct Node* result = cur->prev;
+    if (cur->prev != NULL) {
+        cur->prev->next = cur->next; 
+    }
+    if (cur->next != NULL) {
+        cur->next->prev = cur->prev;
+    }
+
+    free(cur);
+    (list->numNodes)--;
+
+    return result;
 }
 
 struct Node* LL_getNode(struct LinkedList* list, int index)
