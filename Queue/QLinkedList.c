@@ -151,9 +151,44 @@ struct Node* LL_deleteNodeByItem(struct LinkedList* list, void* item)
 
 struct Node* LL_deleteNodeByIndex(struct LinkedList* list, int index)
 {
-    /* TODO */ 
+    /* Safety checks */ 
+    if (index < 0 || index > list->numNodes || list->head == NULL) { 
+        return NULL; 
+    }
 
-    return NULL;
+    /* Special case: first node */
+    if (index == 0) {
+        struct Node* result = list->head->next;
+        free(list->head);
+        (list->numNodes)--;
+        list->head = result;
+
+        /* Non-empty list? */
+        if (list->head != NULL) {
+            list->head->prev = NULL;
+        }
+
+        return result;
+    }
+
+    /* Easy case: last node */
+    if (index == (list->numNodes - 1)) {
+        struct Node* result = list->tail->prev;
+        free(list->tail);
+        (list->numNodes)--;
+        list->tail = result; 
+
+        /* Update tail to reflect dead end */
+        if (list->tail != NULL) {
+            list->tail->next = NULL;
+        }
+     
+        return result;
+    }
+
+    /* TODO: Write traversal code */
+    return list->head;
+        
 }
 
 struct Node* LL_getNode(struct LinkedList* list, int index)

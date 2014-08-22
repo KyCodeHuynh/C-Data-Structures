@@ -105,9 +105,13 @@ struct Node* LL_deleteNodeByItem(struct LinkedList* list, void* item);
  * Delete the Node marked by that index.
  * The Node's item is unaffected. 
  * Return a pointer to the preceding
- * Node if successful, NULL in the cases
- * of an invalid index and empty list.
- */
+ * Node if successful or NULL in the cases of 
+ * an invalid index or empty list. In the
+ * special case of deleting the first node
+ * (index 0), a pointer will be returned to
+ * the following node, or NULL if the list
+ * is now empty.
+ * */
 struct Node* LL_deleteNodeByIndex(struct LinkedList* list, int index);
 
 
