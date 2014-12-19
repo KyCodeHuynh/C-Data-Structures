@@ -4,12 +4,12 @@
  *   Current version: 21 August 2014
  */
 
-#include "Queue.h" 
-#include "QLinkedList.h"
-
 /* malloc(), free(), error messages */
 #include <stdlib.h>
 #include <stdio.h>
+
+#include "Queue.h" 
+#include "QLinkedList.h"
 
 struct Queue* QUE_newQueue(void)
 {
